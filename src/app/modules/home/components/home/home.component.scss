@@ -1,0 +1,17 @@
+.main{
+  height: 100vh;
+  width: 100%;
+  padding: 20px;
+  background-image: url('/assets/img/home-background2-min.jpg');
+  background-size: cover;
+  background-position: center;
+  background-color: transparent !important;
+}
+  .quote{
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    font-size: 18px;
+    width: 100%;
+    box-sizing: border-box;
+  }

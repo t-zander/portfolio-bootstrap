@@ -1,0 +1,21 @@
+.cursor{
+  display: inline-block;
+  background-color: #ffffff;
+  width: 2px;
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0%  { background-color: #ffffff; }
+  49% { background-color: #ffffff; }
+  50% { background-color: transparent; }
+  99% { background-color: transparent; }
+  100%  { background-color: #ffffff; }
+}
+.typing{
+  animation: none;
+}
+.typed-text{
+  font-size: 24px;
+  color: #00bc8c;
+}
