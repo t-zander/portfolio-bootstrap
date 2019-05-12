@@ -13,8 +13,9 @@ import { AngularFireStorage } from '@angular/fire/storage';
 })
 export class WorkDetailsComponent implements OnInit {
   workDetails: Work;
-  imagesUrls: string[];
-  
+  imagesUrls: string[] = [];
+  isLoading = true;
+
   constructor(
     private afStorage: AngularFireStorage,
     private activatedRoute: ActivatedRoute,
@@ -23,15 +24,20 @@ export class WorkDetailsComponent implements OnInit {
   ngOnInit() {
     this.activatedRoute.params
       .pipe(
-        switchMap((params) => this.worksService.getWorkById(params.workId))
+        switchMap((params) => {
+          this.isLoading = true;
+          return this.worksService.getWorkById(params.workId)
+        })
       )
       .subscribe((resp: Work) => {
+        this.isLoading = false;
         this.workDetails = resp;
         this.getImageUrls();
       });
   }
 
   getImageUrls() {
+    this.imagesUrls = [];
     const imgUrls = this.workDetails.images
       .map(image => this.afStorage.ref(image).getDownloadURL());
     

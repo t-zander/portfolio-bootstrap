@@ -1,14 +1,14 @@
-<div class="row">
-  <div class="col-md-8">
-    <carousel [interval]="3000" *ngIf="imagesUrls; else loadingTmpl">
-      <slide *ngFor="let imageUrl of imagesUrls">
-        <img [src]="imageUrl" alt="slide" style="display: block; width: 100%;">
-      </slide>
-    </carousel>
-  </div>
-
-  <div class="col-md-4">
-    <ng-container *ngIf="workDetails; else loadingTmpl">
+<ng-container *ngIf="!isLoading; else loadingTmpl">
+  <div class="row">
+    <div class="col-md-8">
+      <carousel [interval]="3000">
+        <slide *ngFor="let imageUrl of imagesUrls">
+          <img [src]="imageUrl" alt="slide" class="carouselImage">
+        </slide>
+      </carousel>
+    </div>
+  
+    <div class="col-md-4">
       <div>
         <h5>Technologies used:</h5>
         <ul class="list-group list-group-flush">
@@ -20,14 +20,26 @@
   
       <div class="mt-2">
         <h5>Status:</h5>
-        <span class="text-primary">
+        <span class="text-success">
           {{workDetails.status}}
         </span>
       </div>
-    </ng-container>
+    </div>
   </div>
-</div>
+  
+  <div class="row mt-4">
+    <div class="col-md-12">
+      <p class="description">
+        {{workDetails.description}}
+      </p>
+    </div>
+  </div>
+</ng-container>
 
 <ng-template #loadingTmpl>
-  Loading...
+  <div class="d-flex justify-content-center mt-4">
+    <div class="spinner-border text-success" role="status">
+      <span class="sr-only">Loading...</span>
+    </div>
+  </div>
 </ng-template>

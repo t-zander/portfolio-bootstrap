@@ -3,7 +3,6 @@ import { WorkExperienceService } from '../../services/work-experience.service';
 import { JobExperience } from '../../models/Job.models';
 import { SkillsService } from '../../services/skills.service';
 import { Skill } from '../../models/skills.model';
-import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-about-me',
@@ -12,7 +11,7 @@ import { Observable } from 'rxjs';
 })
 export class AboutMeComponent implements OnInit {
   jobs: JobExperience[];
-  skills$: Observable<Skill[]>;
+  skills: Skill[];
   
   constructor(
     private workExperinceService: WorkExperienceService,
@@ -23,10 +22,12 @@ export class AboutMeComponent implements OnInit {
     this.workExperinceService
       .getJobExperienceList()
       .subscribe((resp: JobExperience[]) => {
-        console.log(resp);
         this.jobs = resp;
       });
 
-    this.skills$ = this.skillsService.getSkills()
+    this.skillsService.getSkills()
+      .subscribe((resp: Skill[]) => {
+        this.skills = resp;
+      });
   }
 }

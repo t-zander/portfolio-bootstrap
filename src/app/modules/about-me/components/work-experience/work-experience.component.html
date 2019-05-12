@@ -1,39 +1,43 @@
-<h4>Work experience</h4>
+<div class="row">
+  <div class="col-md-12">
+    <h4>Work experience</h4>
 
-<table class="table table-dark">
-  <thead>
-    <tr>
-      <th scope="col" *ngFor="let tableHeader of tableHeaders">
-        {{tableHeader.name}}
-      </th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let job of jobs">
-      <td>
-        <a [href]="job.link" class="text-primary">
-          {{job.company}}
-        </a>
-      </td>
-      <td>
-        <span *ngIf="job.started; else noDateTmpl">
-          {{job.started?.seconds * 1000 | date:'dd.MM.yyyy'}}
-        </span>
-        -
-        <span *ngIf="job.finished; else noDateTmpl">
-          {{job.finished?.seconds * 1000 | date:'dd.MM.yyyy'}}
-        </span>
-      </td>
-      <td>
-        {{job.position}}
-      </td>
-      <td>
-        {{job.description}}
-      </td>
-    </tr>
-  </tbody>
-</table>
-
-<ng-template #noDateTmpl>
-  ...
-</ng-template>
+    <table class="table table-dark">
+      <thead>
+        <tr>
+          <th scope="col" *ngFor="let tableHeader of tableHeaders">
+            {{tableHeader.name}}
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let job of jobs">
+          <td>
+            <a [href]="job.link" class="text-primary">
+              {{job.company}}
+            </a>
+          </td>
+          <td>
+            <span *ngIf="job.started; else noDateTmpl">
+              {{job.started?.seconds * 1000 | date:'dd.MM.yyyy'}}
+            </span>
+            -
+            <span *ngIf="job.finished; else noDateTmpl">
+              {{job.finished?.seconds * 1000 | date:'dd.MM.yyyy'}}
+            </span>
+          </td>
+          <td>
+            {{job.position}}
+          </td>
+          <td>
+            {{job.description}}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    
+    <ng-template #noDateTmpl>
+      ...
+    </ng-template>
+  </div>
+</div>

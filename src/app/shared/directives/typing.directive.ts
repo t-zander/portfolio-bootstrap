@@ -14,10 +14,9 @@ export class TypingDirective implements OnInit {
   cursorElement;
   typedTextElement;
 
-  constructor(private elementRef: ElementRef, private renderer: Renderer2) { }
+  constructor(private renderer: Renderer2) { }
 
   ngOnInit() {
-    console.log(this.text);
     this.cursorElement = this._cursor.nativeElement;
     this.typedTextElement = this._typedText.nativeElement;
     this._type();

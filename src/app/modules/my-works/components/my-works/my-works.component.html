@@ -4,7 +4,7 @@
       {{work?.title}}
     </a>
     
-    <h6>Links to repos:</h6>
+    <h6>Links:</h6>
     <a *ngFor="let link of work?.links_to_repo" class="d-block" [href]="link.link">
       {{link.link}}
     </a>

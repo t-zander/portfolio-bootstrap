@@ -5,25 +5,6 @@
   
   <div class="col-md-8">
     <app-work-experience [jobs]="jobs"></app-work-experience>
-
-    <div class="row">
-      <div class="col-md-12">
-        <accordion [isAnimated]="true">
-          <accordion-group 
-            *ngFor="let skill of (skills$ | async); let i = index;"
-            [heading]="skill?.field" 
-            [isOpen]="i === 0"
-            >
-            <div class="row">
-              <div class="col-md-4" *ngFor="let technology of skill?.technologies">
-                {{technology?.name}}
-                <progressbar [value]="technology?.progress" type="success"></progressbar>
-              </div>
-            </div>
-          </accordion-group>
-        </accordion>
-      </div>
-    </div>
-    
+    <app-skills-list [skills]="skills"></app-skills-list>
   </div>
 </div>
