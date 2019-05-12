@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { AboutMeComponent } from './components/about-me/about-me.component';
 import { ContactInfoComponent } from './components/contact-info/contact-info.component';
 import { WorkExperienceComponent } from './components/work-experience/work-experience.component';
+import { BootstrapModule } from 'src/app/bootstrap/bootstrap.module';
 
 @NgModule({
   declarations: [
@@ -11,7 +12,8 @@ import { WorkExperienceComponent } from './components/work-experience/work-exper
     WorkExperienceComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    BootstrapModule
   ]
 })
 export class AboutMeModule { }

@@ -22,4 +22,18 @@ export class HttpService {
         })
       );
   }
+
+  getOne<T>(url: string) {
+    console.log(url);
+    
+    return this.afs.doc<T>(url)
+      .snapshotChanges()
+      .pipe(
+        map(action => {
+          const id = action.payload.id;
+          const data = action.payload.data() as T;
+          return { id, ...data };
+        })
+      );
+  }
 }

@@ -1,19 +1,22 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
-
-const MODULES = [
-  
-];
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AccordionModule } from 'ngx-bootstrap';
+import { ProgressbarModule } from 'ngx-bootstrap';
+import { CarouselModule } from 'ngx-bootstrap';
 
 @NgModule({
-  declarations: [],
   imports: [
+    BrowserAnimationsModule,
     CommonModule,
-    ...MODULES
+    AccordionModule.forRoot(),
+    ProgressbarModule.forRoot(),
+    CarouselModule.forRoot()
   ],
   exports: [
-    ...MODULES
+    AccordionModule,
+    ProgressbarModule,
+    CarouselModule
   ]
 })
 export class BootstrapModule { }

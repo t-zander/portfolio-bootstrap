@@ -1,0 +1,34 @@
+.left-panel{
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 20%;
+  padding: 56px 1rem;
+  background: #375a7f;
+  -webkit-box-shadow: 3px 0px 10px 0px rgba(55,90,127,1);
+  -moz-box-shadow: 3px 0px 10px 0px rgba(55,90,127,1);
+  box-shadow: 3px 0px 10px 0px rgba(55,90,127,1);
+}
+
+  .work-item{
+    border-bottom: 2px solid rgba($color: #fff, $alpha: 0.5);
+  }
+    .link{
+      color: rgba($color: #fff, $alpha: 0.5);
+      transition: color 0.4s;
+      font-size: 22px;
+      text-decoration: none;
+      &:hover{
+        color: rgba($color: #fff, $alpha: 1);
+      }
+    }
+
+    .link-to-repo{
+      display: block;
+    }
+
+.right-panel{
+  width: 80%;
+  margin-left: 20%;
+}
